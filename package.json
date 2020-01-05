@@ -5,48 +5,13 @@
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "start": "electron ."
   },
   "keywords": [],
   "author": "shangbi",
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "my_app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
-  },
   "dependencies": {
-    "electron": "^7.1.7",
-    "electron-forge": "^5.2.4",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron": "7.1.7"
   },
-  "devDependencies": {
-    "electron-prebuilt-compile": "4.0.0"
-  }
+  "devDependencies": {}
 }

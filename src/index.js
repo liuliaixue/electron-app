@@ -11,13 +11,17 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      preload: path.join(__dirname, 'preload.js')
+    }
     
   })
-
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools()
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+ 
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -25,6 +29,10 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+  })
+
+  mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow.webContents.send('ping', 'whoooooooh!')
   })
 }
 
